@@ -1,21 +1,21 @@
 
-
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  @Output() isLogout = new EventEmitter<void>();
 
-  @Output() isLogout=new EventEmitter<void>()
-  constructor(public firebaseService:FirebaseService){}
-  
-  onLogout(){
-    console.log("hello from Aditya");
-    this.firebaseService.logout()
-    this.isLogout.emit()
+  constructor(private firebaseService: FirebaseService, private router: Router) {}
+
+  onLogout() {
+    this.firebaseService.logout();
+    this.isLogout.emit();
+    this.router.navigate(['/signin']);
   }
 }
