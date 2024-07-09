@@ -1,0 +1,9 @@
+.container {
+  top: 0px;
+  left: 0px;
+  width: 1600px;
+  height: 1800px;
+  /* UI Properties */
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
